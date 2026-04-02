@@ -863,16 +863,43 @@
         }, 1000);
 
         // Flower Effect
-        const container = document.getElementById("flowers");
-        for (let i = 0; i < 40; i++) {
-            let flower = document.createElement("div");
-            flower.className = "flower";
-            flower.innerHTML = ["🌸", "✨"][Math.floor(Math.random() * 2)];
-            flower.style.left = Math.random() * 100 + "vw";
-            flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
-            flower.style.animationDelay = Math.random() * 5 + "s";
-            container.appendChild(flower);
-        }
+        // const container = document.getElementById("flowers");
+        // for (let i = 0; i < 40; i++) {
+        //     let flower = document.createElement("div");
+        //     flower.className = "flower";
+        //     flower.innerHTML = ["🌸", "✨"][Math.floor(Math.random() * 2)];
+        //     flower.style.left = Math.random() * 100 + "vw";
+        //     flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
+        //     flower.style.animationDelay = Math.random() * 5 + "s";
+        //     container.appendChild(flower);
+        // }
+		
+		const container = document.getElementById("flowers");
+// 1. Giảm số lượng từ 40 xuống còn khoảng 15-20 để màn hình thoáng hơn
+const flowerCount = 20; 
+
+for (let i = 0; i < flowerCount; i++) {
+    let flower = document.createElement("div");
+    flower.className = "flower";
+    
+    // Giữ lại các icon lộng lẫy
+    flower.innerHTML = ["💍", "✨", "🌸"][Math.floor(Math.random() * 3)];
+    
+    flower.style.left = Math.random() * 100 + "vw";
+    
+    // 2. Kéo dài thời gian rơi (Slow motion) để tạo cảm giác thong thả
+    // Thay vì 5-10s, mình tăng lên 8-15s
+    flower.style.animationDuration = (Math.random() * 7 + 8) + "s";
+    
+    // 3. Tăng độ trễ xuất hiện (Delay) để các icon không rơi cùng lúc ngay lập tức
+    flower.style.animationDelay = Math.random() * 10 + "s";
+    
+    // 4. (Tùy chọn) Thêm độ mờ khác nhau để tạo chiều sâu (xa-gần)
+    flower.style.opacity = Math.random() * 0.5 + 0.3; // Độ mờ từ 0.3 đến 0.8
+
+    container.appendChild(flower);
+}
+
 
         // RSVP Submit
         document.getElementById('rsvp-form').addEventListener('submit', function(e) {
